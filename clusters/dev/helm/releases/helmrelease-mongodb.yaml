@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mongodb
+  namespace: psac5-mongo
+spec:
+  interval: 5m
+  releaseName: mongodb
+  chart:
+    spec:
+      chart: mongodb
+      version: "16.0.3"
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  values:
+    auth:
+      rootPassword: xcCnwlg&$hPT4Anz6C2n
+      username: admin
+      password: xcCnwlg&$hPT4Anz6C2n
+      database: database
